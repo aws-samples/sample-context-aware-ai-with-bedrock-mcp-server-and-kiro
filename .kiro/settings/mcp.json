@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "awslabs.bedrock-kb-retrieval-mcp-server": {
+      "command": "uvx",
+      "args": [
+        "awslabs.bedrock-kb-retrieval-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_PROFILE": "default",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "KB_INCLUSION_TAG_KEY": "mcp-multirag-kb",
+        "BEDROCK_KB_RERANKING_ENABLED": "false"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "ListKnowledgeBases",
+        "QueryKnowledgeBases"
+      ]
+    },
+    "bedrock-kb-langchain": {
+      "command": "bash",
+      "args": [
+        "./kiro-bedrock-kb-mcp/langchain-alternative/run_server.sh"
+      ],
+      "env": {
+        "KNOWLEDGE_BASE_ID": "<YOUR_KNOWLEDGE_BASE_ID>",
+        "AWS_REGION": "us-east-1",
+        "MODEL_ID": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "MAX_RESULTS": "5"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "retrieve_knowledge",
+        "ask_knowledge_base",
+        "list_knowledge_sources"
+      ]
+    }
+  }
+}

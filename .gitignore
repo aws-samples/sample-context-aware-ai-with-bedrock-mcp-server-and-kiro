@@ -1,0 +1,24 @@
+# Kiro IDE / APEX framework
+.kiro/*
+!.kiro/settings/
+.apex/
+.workflow-state/
+
+# Project scaffolding (not part of solution)
+project-doc/
+
+# Security scan output (regeneratable)
+ash-output/
+.ash/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db

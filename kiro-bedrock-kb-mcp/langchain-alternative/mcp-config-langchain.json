@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "bedrock-kb-langchain": {
+      "command": "python",
+      "args": ["./langchain-alternative/mcp_server.py"],
+      "env": {
+        "KNOWLEDGE_BASE_ID": "<YOUR_KNOWLEDGE_BASE_ID>",
+        "AWS_REGION": "us-east-1",
+        "MODEL_ID": "us.anthropic.claude-haiku-4-5-20251001-v1:0",
+        "MAX_RESULTS": "5"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "retrieve_knowledge",
+        "ask_knowledge_base",
+        "list_knowledge_sources"
+      ]
+    }
+  }
+}
