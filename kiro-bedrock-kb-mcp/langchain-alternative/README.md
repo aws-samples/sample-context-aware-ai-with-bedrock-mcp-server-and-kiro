@@ -46,7 +46,7 @@ Or edit `../.kiro/settings/mcp.json` manually — replace `<YOUR_KNOWLEDGE_BASE_
 
 ## Architecture
 
-![LangChain Alternative Architecture](../architecture-diagrams/architecture-langchain.png)
+![LangChain Alternative Architecture](../architecture-diagrams/architecture-diagram-langchain-alternative.png)
 
 ## How It Works
 
