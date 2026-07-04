@@ -8,13 +8,13 @@ Uses the official [awslabs.bedrock-kb-retrieval-mcp-server](https://awslabs.gith
 
 ### Bedrock KB MCP Server
 
-![Bedrock KB MCP Server Architecture](kiro-bedrock-kb-mcp/architecture-diagrams/architecture-bedrock-kb-mcp.png)
+![Bedrock KB MCP Server Architecture](kiro-bedrock-kb-mcp/architecture-diagrams/architecture-diagram-bedrock-kb-mcp.png)
 
 A developer asks a question in Kiro. Kiro spawns the official [Amazon Bedrock](https://aws.amazon.com/bedrock/) Knowledge Base MCP server via `uvx`. The server discovers Knowledge Bases tagged with `mcp-multirag-kb=true`, queries them using the Retrieve API, and returns relevant passages with citations. Under the hood, [Amazon Bedrock Knowledge Bases](https://aws.amazon.com/bedrock/knowledge-bases/) embeds the query with Amazon Titan Text Embeddings v2, searches [Amazon OpenSearch Serverless](https://aws.amazon.com/opensearch-service/features/serverless/) for matching chunks, and returns ranked results.
 
 ### LangChain Alternative
 
-![LangChain Alternative Architecture](kiro-bedrock-kb-mcp/architecture-diagrams/architecture-langchain.png)
+![LangChain Alternative Architecture](kiro-bedrock-kb-mcp/architecture-diagrams/architecture-diagram-langchain-alternative.png)
 
 The LangChain server replaces the official MCP server with a custom Python implementation. It uses LangChain's LCEL chain (`AmazonKnowledgeBasesRetriever → ChatPromptTemplate → ChatBedrock Converse → StrOutputParser`) to orchestrate retrieval and answer generation. The key advantage is provider portability — swap the vector store, LLM, or embeddings model without changing the MCP tools exposed to Kiro.
 
